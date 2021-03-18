@@ -1,10 +1,11 @@
 <template>
   <v-app>
-    <v-main class="indigo darken-4">
-
-      <v-navigation-drawer width="400">
+    <v-navigation-drawer app width="400">
         <Secundario/>
     </v-navigation-drawer>
+    <v-main class=" ColorSecundario">
+    <PruebaPrincipal/>
+      
     </v-main>
     
   </v-app>
@@ -15,7 +16,7 @@
 import HelloWorld from './components/HelloWorld';
 import Principal from './components/Principal';
 import Secundario from './components/Secundario';
-
+import PruebaPrincipal from './components/PruebaPrincipal';
 export default {
   name: 'App',
 
@@ -23,6 +24,7 @@ export default {
     HelloWorld,
     Principal,
     Secundario,
+    PruebaPrincipal,
   },
 
   data: () => ({
@@ -32,5 +34,7 @@ export default {
 </script>
 
 <style scoped>
-
+  .ColorSecundario{
+    background-color: #140c1c;
+  }
 </style>
