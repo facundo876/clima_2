@@ -3,7 +3,7 @@
     <v-navigation-drawer app width="400">
         <Secundario/>
     </v-navigation-drawer>
-    <v-main class=" ColorSecundario">
+    <v-main>
     <PruebaPrincipal/>
       
     </v-main>
@@ -36,5 +36,8 @@ export default {
 <style scoped>
   .ColorSecundario{
     background-color: #140c1c;
+  }
+  .ColorTargetas{
+    background-color: #1c243c;
   }
 </style>

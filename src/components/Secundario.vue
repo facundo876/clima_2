@@ -8,7 +8,6 @@
           align="center"
           no-gutters
           justify="space-around"
-          style="background-color: grey;"
         >
             <v-btn
               color="grey"
@@ -62,7 +61,6 @@
         <v-row 
           justify="center"
           no-gutters
-          style="background-color: grey;"
           >
             <h5>
               <p class="ClaseFuente grey--text" style="word-spacing: 5px;" >Today  &#183;  Fri,5Jue</p>
