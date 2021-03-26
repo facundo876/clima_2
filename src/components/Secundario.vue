@@ -24,6 +24,7 @@
               elevation="5"
               fab
               x-small
+              @click="setUbicacion"
             >     
                  <v-icon color="white">mdi-crosshairs-gps</v-icon> 
             </v-btn>
@@ -33,11 +34,7 @@
           justify="center"
           no-gutters
           >
-            <v-img  src="https://www.metaweather.com/static/img/weather/png/sn.png"
-                    
-                    max-width="200">
-              
-            </v-img>
+            <v-img v-bind:src="today.image" max-width="200"></v-img>
         </v-row>
         <v-row 
           justify="center"
@@ -45,7 +42,7 @@
           align="end"
           >
             <h1 class=" text-center display-4">
-              <p class="ClaseFuente white--text">15</p>
+              <p class="ClaseFuente white--text">{{today.the_temp}}</p>
             </h1>
             <h1 class="display-1">
               <p class="ClaseFuente grey--text" >&deg;C</p>
@@ -55,7 +52,7 @@
           justify="center"
           no-gutters
           >
-            <h1 class="text-center"><p class="ClaseFuente grey--text">Shower</p></h1>
+            <h1 class="text-center"><p class="ClaseFuente grey--text">{{today.weather_state_name}}</p></h1>
         </v-row>
         <br><br>
         <v-row 
@@ -63,8 +60,8 @@
           no-gutters
           >
             <h5>
-              <p class="ClaseFuente grey--text" style="word-spacing: 5px;" >Today  &#183;  Fri,5Jue</p>
-              <p class="ClaseFuente grey--text" style="word-spacing: 10px;"><v-icon color="grey">mdi-map-marker</v-icon>Helsinki</p>
+              <p class="ClaseFuente grey--text" style="word-spacing: 5px;" >Today  &#183;  {{today.str_today}}</p>
+              <p class="ClaseFuente grey--text"><v-icon color="grey">mdi-map-marker</v-icon>{{climateJSON.title}}</p>
             </h5>
         </v-row>
  
@@ -119,6 +116,8 @@
 </template>
 
 <script>
+  import {mapState, mapMutations} from 'vuex';
+
   export default {
     data () {
       return {
@@ -127,7 +126,15 @@
           { title: 'Home', icon: 'mdi-view-dashboard' },
           { title: 'About', icon: 'mdi-forum' },
         ],
+        mensaje: "https://www.metaweather.com/static/img/weather/png/sn.png"
       }
+    },
+    computed: {
+      ...mapState(['today', 'climateJSON']),
+      
+    },
+    methods:{
+      ...mapMutations(['setUbicacion']),
     },
   }
 </script>

@@ -8,5 +8,9 @@ Vue.config.productionTip = false
 new Vue({
   store,
   vuetify,
-  render: h => h(App)
+  render: h => h(App),
+  mounted () {
+
+    store.dispatch('ConsultaApi')
+  },
 }).$mount('#app')

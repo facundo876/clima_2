@@ -27,17 +27,21 @@
             </v-row>
             <v-row class="px-16" justify="space-between" no-gutters >
                 <v-card
-                    v-for="n in 5"
-                    :key="n"
+                    v-for="n in week"
+                    :key="n.id"
                     outlined
                     tile
                     height="125"
                     width="90"
                     color="#1c243c"
-                ><div class="ClaseFuente text-center white--text mt-1"><h5>Tomorrow</h5></div>
+                ><div class="ClaseFuente text-center white--text mt-1"><h5>{{n.str_day}}</h5></div>
                     <v-card-text >
                         <img class="ml-1" src="https://www.metaweather.com/static/img/weather/ico/s.ico" width="50">
-                        <div class="ClaseFuente text-center white--text" style="word-spacing: 10px;"><h4>16° 11°</h4></div>
+                        <!--<div class="ClaseFuente text-center white--text" style="word-spacing: 10px;"><h4>{{n.max_temp +" " +  n.min_temp}}</h4></div>-->
+                        <v-row justify="space-between" no-gutters>
+                            <v-col md-6 class="ClaseFuente white--text text-start ">{{n.max_temp}}</v-col>
+                            <v-col md-6 class="ClaseFuente grey--text text-end ">{{n.min_temp}}</v-col>
+                        </v-row>
                     </v-card-text>
                 </v-card>
             </v-row>
@@ -64,8 +68,8 @@
                     </v-row>
                     
                     <v-row align="center" justify="center" >
-                        <div class="ClaseFuente white--text display-3"><h5>7</h5></div>
-                        <div class="ClaseFuente white--text text-h5">mph</div>
+                        <div class="ClaseFuente white--text display-3"><h5>{{today.wind_speed}}</h5></div>
+                        <div class="ClaseFuente white--text text-h5 ml-2">mph</div>
                     </v-row>
                     <v-row align="center" justify="center" >
                         <v-btn
@@ -95,7 +99,7 @@
                     </v-row>
                     
                     <v-row align="center" justify="center" >
-                        <div class="ClaseFuente white--text display-3 pl-3"><h5>84</h5></div>
+                        <div class="ClaseFuente white--text display-3 pl-3"><h5>{{today.humidity}}</h5></div>
                         <div class="ClaseFuente white--text text-h4">%</div>
                     </v-row>
                     <v-row align="center" justify="center" >
@@ -111,7 +115,7 @@
                            
                             <v-progress-linear
                             color="yellow"
-                            value="84"
+                            :value= today.humidity
                             rounded
                             height="8"
                         
@@ -135,8 +139,8 @@
                     </v-row>
                     
                     <v-row align="center" justify="center" >
-                        <div class="ClaseFuente white--text display-3 pl-3"><h5>4,6</h5></div>
-                        <div class="ClaseFuente white--text text-h5">miles</div>
+                        <div class="ClaseFuente white--text display-3 pl-3"><h5>{{today.visibility}}</h5></div>
+                        <div class="ClaseFuente white--text text-h5 ml-2">miles</div>
                     </v-row>
                 </v-card>
                 <v-card
@@ -153,8 +157,8 @@
                     </v-row>
                     
                     <v-row align="center" justify="center" >
-                        <div class="ClaseFuente white--text display-3 pl-3"><h5>998</h5></div>
-                        <div class="ClaseFuente white--text text-h5">mb</div>
+                        <div class="ClaseFuente white--text display-3 pl-3"><h5>{{today.air_pressure}}</h5></div>
+                        <div class="ClaseFuente white--text text-h5 ml-2">mb</div>
                     </v-row>
                 </v-card>
             </v-row>
@@ -170,8 +174,16 @@
 </template>
 
 <script>
-export default {
+import {mapMutations, mapState} from 'vuex';
 
+export default {
+    data:{
+        mensaje: "Hola"
+    },
+    computed:{
+        ...mapState(['week', 'climateJSON', 'today']),
+
+    }
 }
 </script>
 
