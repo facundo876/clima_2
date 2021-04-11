@@ -1,5 +1,5 @@
 <template>
-  <v-app>
+  <v-app> 
     <v-navigation-drawer app width="400">
         <Secundario/>
     </v-navigation-drawer>

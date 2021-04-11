@@ -3,7 +3,7 @@
     class="overflow-hidden fill-height"
     style="position: relative;"
   > 
-    <v-container class="fill-height ColorPricipal">
+    <v-container class="fill-height ColorPricipal" >
         <v-row
           align="center"
           no-gutters

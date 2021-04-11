@@ -56,7 +56,6 @@
             <v-row class="px-16" justify="space-between"  no-gutters>
                 <v-card
                     class="my-0"
-                    :key="n"
                     outlined
                     tile
                     height="120"
@@ -87,7 +86,6 @@
                 </v-card>
                     <v-card
                     class="my-0"
-                    :key="n"
                     outlined
                     tile
                     height="120"
@@ -188,5 +186,7 @@ export default {
 </script>
 
 <style>
-
+html {
+  overflow-y: hidden !important;
+}
 </style>
