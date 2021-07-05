@@ -1,4 +1,7 @@
-# climas_2
+# Pagina web del Clima
+*Busqueda por pais.
+*Consumo de Api.
+*Diseño en vuetify.
 
 ## Project setup
 ```
